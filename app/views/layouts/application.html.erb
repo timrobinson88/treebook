@@ -7,6 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="#" class="brand">Treebook</a>
+				<ul>
+					<li><%= link_to "All Statuses", statuses_path %></li>
+					<ul class="nav pull-right">
+						<% if user_signed_in? %>
+						<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+						<li><%= link_to "logout", destroy_user_session_path, method: :delete %>
+						<% else %>
+						<li><%= link_to "Register", new_user_registration_path %>
+						<li><%= link_to "Login", new_user_session_path %>
+						</li>					
+						<% end %>
+						</li>
+					</ul>
+
+				</ul>
+				
+			</div>	
+		</div>
+	</div>
+
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
 
